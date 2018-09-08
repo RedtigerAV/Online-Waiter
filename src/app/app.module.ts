@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
@@ -15,7 +16,8 @@ import { SystemGuard } from './system/system.guard';
     BrowserModule,
     AuthModule,
     SystemModule,
-    AppRouting
+    AppRouting,
+    BrowserAnimationsModule
   ],
   providers: [SystemGuard],
   bootstrap: [AppComponent]
