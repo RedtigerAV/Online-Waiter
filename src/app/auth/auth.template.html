@@ -1,5 +1,31 @@
-THIS IS AUTH
-<barcode-scanner-livestream type="code_128" (valueChanges)="onValueChanges($event)"></barcode-scanner-livestream>
-<div [hidden]="!barcodeValue">
-  {{barcodeValue}}
+<div class="auth-wrapper">
+  <p class="title">
+    Добро пожаловать к нам в ресторан!
+  </p>
+  <mat-card class="form-wrapper">
+    <form class="auth-form" [formGroup]="form">
+      <mat-form-field class="example-form-field auth-form__control auth-form__control-name">
+        <input matInput type="text"
+               placeholder="Введите ваше имя"
+               formControlName="name">
+        <button mat-button *ngIf="true" matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div class="auth-form__control">
+        <mat-form-field class="example-full-width auth-form__control-barcode">
+          <input matInput placeholder="Сканируйте штрихкод" formControlName="barcode">
+        </mat-form-field>
+
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" class="camera" (click)="scanCode()">
+          <mat-icon color="warn">camera</mat-icon>
+        </button>
+      </div>
+
+      <button [disabled]="!isFormValid()" (click)="onLogin()" class="auth-form__control auth-form__control-submit" mat-raised-button color="warn">Войти</button>
+    </form>
+
+    <barcode-scanner-livestream *ngIf="isBarcodeVisible" class="barcode" type="code_128" (valueChanges)="codeScanned($event)"></barcode-scanner-livestream>
+  </mat-card>
 </div>

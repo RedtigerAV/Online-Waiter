@@ -1,0 +1,71 @@
+.auth-wrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  background: url('https://images.wallpaperscraft.com/image/restaurant_cafe_appliances_tables_chairs_interior_design_39216_800x1200.jpg') no-repeat center;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:100%;
+  width:100%;
+  min-height: 100%;
+  overflow: auto;
+}
+
+.form-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  width: 80%;
+  height: 250px;
+  padding: 0;
+  opacity: .95;
+}
+
+.auth-form {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.auth-form__control {
+  position: relative;
+  width: 80%;
+}
+
+.auth-form__control-barcode {
+  width: calc(~"100% - 40px");
+}
+
+.camera {
+  right: -8px;
+}
+
+.barcode {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.button {
+  opacity: 1;
+}
+
+.title {
+  position: absolute;
+  text-align: center;
+  font-size: 40px;
+  top: 30px;
+  color: lightskyblue;
+  font-weight: 400;
+  font-family: Roboto;
+}
