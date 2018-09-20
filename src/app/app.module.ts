@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { SystemModule } from './system/system.module';
 import { AppRouting } from './app.routing';
 import { SystemGuard } from './system/system.guard';
+import { UserService } from './shared/user.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { SystemGuard } from './system/system.guard';
     AppRouting,
     BrowserAnimationsModule
   ],
-  providers: [SystemGuard],
+  providers: [SystemGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
