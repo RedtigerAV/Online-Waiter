@@ -1,0 +1,13 @@
+<div class="menu-root">
+  <div class="scrolling-wrapper">
+    <div class="card" *ngFor="let category of categories"
+         (click)="onSelectCategory(category)">
+      <div class="card-content" [class.isActive]="category.name === selectedCategory.name">
+        <img class="menu-img" src="{{category.photo}}" alt="Dish">
+      </div>
+      <p class="card-name">
+        {{ category.name }}
+      </p>
+    </div>
+  </div>
+</div>

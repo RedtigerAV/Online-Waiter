@@ -1,0 +1,58 @@
+.scrolling-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.card {
+  position: relative;
+  width: 70%;
+  height: auto;
+  flex: 0 0 auto;
+  margin: 10px 20px;
+  padding: 3px;
+}
+
+.card-content {
+  position: relative;
+  height: 170px;
+  padding: 0;
+  transition: all 0.25s ease-out;
+}
+
+.card-name {
+  position: relative;
+  text-align: center;
+  font-family: Roboto;
+  margin: 7px;
+  font-size: 17px;
+}
+
+.menu-root {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  filter: brightness(90%);
+  background-size: cover;
+}
+
+.isActive {
+  -webkit-box-shadow: -9px 9px 13px 0px rgba(0,0,0,0.34);
+  -moz-box-shadow: -9px 9px 13px 0px rgba(0,0,0,0.34);
+  box-shadow: -9px 9px 13px 0px rgba(0,0,0,0.34);
+  transition: all 0.25s ease-out;
+  transform: translateX(3px) translateY(-3px);
+
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

@@ -1,3 +1,28 @@
 {
-
+  "categories": [
+    {
+      "id": 1,
+      "name": "Основные блюда",
+      "dishes": [],
+      "photo": "http://restorandia.ru/dostavka/images/product/ca/cac0824995127d3e8814842d7028f8af.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Салаты",
+      "dishes": [],
+      "photo": "http://receptveka.ru/images/r/ovkuse.com/img/ws5F.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Пицца",
+      "dishes": [],
+      "photo": "http://i.siteapi.org/DthsS7-r3J7sjsaEGYWB7c9A5Bk=/fit-in/1024x768/center/top/3ad3754ebc5872d.s.siteapi.org/img/ea63a1b89a7d8bcc05069d8ffff0b8ef92c5156f.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Кофе и чай",
+      "dishes": [],
+      "photo": "https://st03.kakprosto.ru//images/article/2013/11/30/105762_529996a624af0529996a624b28.jpeg"
+    }
+  ]
 }

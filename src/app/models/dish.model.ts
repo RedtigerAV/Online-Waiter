@@ -1,10 +1,7 @@
-import { IProduct } from './product.model';
-
 export class Dish {
-  public id: number;
+  public id: string;
   public name: string;
   public description: string;
-  public products: IProduct[];
   public calories: number;
   public sum: number;
   public isAvailable: boolean;

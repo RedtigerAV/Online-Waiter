@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  firebaseConfig: {
+    apiKey: 'AIzaSyCvbn-Ye1RJ91kUimmQsCOENkPfwwBkmr8',
+    authDomain: 'onlinewaiter-ef030.firebaseapp.com',
+    databaseURL: 'https://onlinewaiter-ef030.firebaseio.com',
+    projectId: 'onlinewaiter-ef030',
+    storageBucket: 'onlinewaiter-ef030.appspot.com',
+    messagingSenderId: '527155961869'
+  }
 };
 
 /*

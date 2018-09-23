@@ -1,0 +1,24 @@
+<div class="footer">
+  <button mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear">
+    <mat-icon>restaurant</mat-icon>
+  </button>
+
+  <button mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          *ngIf="isAdmin()">
+    <mat-icon>people</mat-icon>
+  </button>
+
+  <button mat-button matSuffix mat-icon-button aria-label="Clear">
+    <mat-icon>shopping_basket</mat-icon>
+  </button>
+
+  <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="!isAdmin()">
+    <mat-icon>room_service</mat-icon>
+  </button>
+</div>
