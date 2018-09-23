@@ -1,13 +1,28 @@
+.menu-root {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .scrolling-wrapper {
   position: relative;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  width: auto;
 }
 
 .card {
   position: relative;
-  width: 70%;
+  width: 50%;
   height: auto;
   flex: 0 0 auto;
   margin: 10px 20px;
@@ -16,7 +31,7 @@
 
 .card-content {
   position: relative;
-  height: 170px;
+  height: 140px;
   padding: 0;
   transition: all 0.25s ease-out;
 }
@@ -27,12 +42,6 @@
   font-family: Roboto;
   margin: 7px;
   font-size: 17px;
-}
-
-.menu-root {
-  position: relative;
-  margin: 0;
-  padding: 0;
 }
 
 .menu-img {
@@ -50,7 +59,6 @@
   box-shadow: -9px 9px 13px 0px rgba(0,0,0,0.34);
   transition: all 0.25s ease-out;
   transform: translateX(3px) translateY(-3px);
-
 }
 
 ::-webkit-scrollbar {

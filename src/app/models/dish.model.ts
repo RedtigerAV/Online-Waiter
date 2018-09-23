@@ -8,4 +8,5 @@ export class Dish {
   public photo: string;
   public amount: number;
   public comment: string;
+  public categoryId: string;
 }

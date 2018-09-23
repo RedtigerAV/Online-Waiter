@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Category } from '../models/category.model';
 import { Observable } from 'rxjs/index';
-import { map, tap } from 'rxjs/internal/operators';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { map } from 'rxjs/internal/operators';
 
 @Injectable()
 export class CategoryService {
