@@ -51,7 +51,7 @@ export class AuthComponent implements OnInit{
   onLogin() {
     const name = this.form.get('name').value;
     const table = this.form.get('barcode').value.toString().slice(0, 2);
-    const isAdmin = this.form.get('barcode').value.toString().endsWith(1234);
+    const isAdmin = this.form.get('barcode').value.toString().endsWith('1234');
     const user = new User(
       name,
       table,

@@ -1,0 +1,32 @@
+<div class="notification-root">
+  <div class="notification-field">
+    <p class="notification-title">Оставьте комментарий в книгу жалоб и предложений</p>
+    <mat-form-field class="comment-wrapper">
+      <input matInput class="comment-field-big" #userComment
+             type="text"
+             placeholder="Книга жалоб и предложений"
+             autocomplete="off">
+    </mat-form-field>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="notification-field">
+    <p class="notification-title" *ngIf="!user.isWaitingWaiter">Вызовите официанта</p>
+    <button mat-raised-button *ngIf="!user.isWaitingWaiter"
+            class="notification-call"
+            color="warn" (click)="callWaiter()">Вызвать!</button>
+    <p class="notification-title" *ngIf="user.isWaitingWaiter">Официант уже идет к вам</p>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="notification-field">
+    <p class="notification-title" *ngIf="!user.isWaitingAdmin">Вызовите администратора</p>
+    <button mat-raised-button
+            class="notification-call"
+            *ngIf="!user.isWaitingAdmin"
+            color="warn" (click)="callAdmin()">Вызвать!</button>
+    <p class="notification-title" *ngIf="user.isWaitingAdmin">Администратор уже идет к вам</p>
+  </div>
+</div>

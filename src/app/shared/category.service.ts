@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Category } from '../models/category.model';
-import { Observable } from 'rxjs/index';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators';
 
 @Injectable()
@@ -17,11 +16,5 @@ export class CategoryService {
             ...item.payload.val()
           })))
       );
-  }
-
-  postCategory(cat: Category) {
-    // const id = this.firebaseDB.createPushId();
-    // const item = {id, name: 'lol', photo: ''};
-    // this.firebaseDB.list('categories').set(item.id, item);
   }
 }

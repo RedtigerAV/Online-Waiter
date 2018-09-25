@@ -1,4 +1,7 @@
 <div class="system-root">
-  <menu></menu>
+  <menu *ngIf="pageType === 'menu'"></menu>
+  <basket-admin *ngIf="pageType === 'basket-admin'"></basket-admin>
+  <basket *ngIf="pageType === 'basket'" (changePageType)="onChangePageType($event)"></basket>
+  <notifications *ngIf="pageType === 'notifications'"></notifications>
 </div>
-<footer></footer>
+<footer [selectType]="pageType" (changePageType)="onChangePageType($event)"></footer>

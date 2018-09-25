@@ -1,7 +1,7 @@
 export class User {
   public id: string;
-  public isWaiting = false;
-  public cardPayment = false;
+  public isWaitingWaiter = false;
+  public isWaitingAdmin = false;
   public comment = '';
 
   constructor(public name: string,

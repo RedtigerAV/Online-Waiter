@@ -1,18 +1,76 @@
 <div class="menu-root">
-  <div class="wrapper">
+  <div class="wrapper" (scroll)="onScroll($event)">
 
     <div class="scrolling-wrapper">
-      <div class="card" *ngFor="let category of categories"
-           (click)="onSelectCategory(category)">
-        <div class="card-content" [class.isActive]="category.name === selectedCategory.name">
-          <img class="menu-img" src="{{category.photo}}" alt="Dish">
+      <ng-container *ngFor="let category of categories">
+        <div class="card" *ngIf="category.dishesId.length > 0"
+             (click)="onSelectCategory(category)">
+          <div class="card-content" [class.isActive]="category.name === selectedCategory?.name">
+            <img class="menu-img" src="{{category.photo}}" alt="Dish">
+          </div>
+          <p class="card-name">
+            {{ category.name }}
+          </p>
         </div>
-        <p class="card-name">
-          {{ category.name }}
-        </p>
-      </div>
+      </ng-container>
     </div>
 
-    <div *ngFor="let dish of dishes"> {{dish.name}} </div>
+    <div class="categoryName" [class.visible]="scrollTop > 176"> {{selectedCategory?.name}} </div>
+
+    <ng-container *ngFor="let dish of dishes">
+      <div *ngIf="isDishVisible(dish)" class="dish">
+        <mat-card class="dish-card" [class.notIsAvailable]="!dish.isAvailable">
+          <mat-card-header>
+            <mat-card-title class="dish-title">{{dish.name}}</mat-card-title>
+            <mat-card-subtitle class="dish-subtitle">{{dish.sum}}₽</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{dish.photo}}">
+          <mat-card-content>
+            <p *ngIf="!!dish.description">
+              {{dish.description}}
+            </p>
+            <p>
+              Калории: {{dish.calories}}
+            </p>
+          </mat-card-content>
+
+          <mat-form-field class="comment-field" *ngIf="!isAdmin()">
+            <input matInput type="text" #comment value="{{dish.comment}}" (blur)="onAddComment(dish, comment.value)"
+                   placeholder="Комментарий к блюду" class="comment-input" autocomplete="off">
+          </mat-form-field>
+
+          <mat-divider></mat-divider>
+          <mat-card-actions>
+            <button mat-button
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="onDishRemove(dish)"
+                    *ngIf="!isAdmin()">
+              <mat-icon>remove</mat-icon>
+            </button>
+
+            <ng-container *ngIf="!isAdmin()">
+              {{dish.amount}}
+            </ng-container>
+
+            <button mat-button
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="onDishAdd(dish)"
+                    *ngIf="!isAdmin()">
+              <mat-icon>add</mat-icon>
+            </button>
+
+            <button mat-stroked-button
+                    *ngIf="isAdmin() && !!dish.isAvailable" (click)="hideDish(dish)">Скрыть</button>
+            <button mat-stroked-button
+                    color="warn"
+                    *ngIf="isAdmin() && !dish.isAvailable" (click)="returnDish(dish)">Вернуть</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </ng-container>
   </div>
 </div>

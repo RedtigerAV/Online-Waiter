@@ -2,7 +2,9 @@
   <button mat-button
           matSuffix
           mat-icon-button
-          aria-label="Clear">
+          aria-label="Clear"
+          [color]="selectType === 'menu' ? 'warn' : ''"
+          (click)="changeType('menu')">
     <mat-icon>restaurant</mat-icon>
   </button>
 
@@ -10,15 +12,41 @@
           matSuffix
           mat-icon-button
           aria-label="Clear"
-          *ngIf="isAdmin()">
-    <mat-icon>people</mat-icon>
-  </button>
-
-  <button mat-button matSuffix mat-icon-button aria-label="Clear">
+          *ngIf="!isAdmin()"
+          [color]="selectType === 'basket' ? 'warn' : ''"
+          (click)="changeType('basket')">
     <mat-icon>shopping_basket</mat-icon>
   </button>
 
-  <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="!isAdmin()">
+  <button mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          *ngIf="isAdmin()"
+          [color]="selectType === 'basket-admin' ? 'warn' : ''"
+          (click)="changeType('basket-admin')">
+    <mat-icon [matBadgeHidden]="false"
+              matBadge="11"
+              matBadgeColor="accent">shopping_basket</mat-icon>
+  </button>
+
+  <button mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          *ngIf="isAdmin()"
+          [color]="selectType === 'clients' ? 'warn' : ''"
+          (click)="changeType('clients')">
+    <mat-icon>people</mat-icon>
+  </button>
+
+  <button mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          *ngIf="!isAdmin()"
+          [color]="selectType === 'notifications' ? 'warn' : ''"
+          (click)="changeType('notifications')">
     <mat-icon>room_service</mat-icon>
   </button>
 </div>
