@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { BarecodeScannerLivestreamComponent } from 'ngx-barcode-scanner';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { UserService } from '../shared/user.service';
 
@@ -20,7 +19,6 @@ export class AuthComponent implements OnInit{
 
   constructor(private changeDetector: ChangeDetectorRef,
               private fb: FormBuilder,
-              private router: Router,
               private userService: UserService) {
   }
 
@@ -51,13 +49,16 @@ export class AuthComponent implements OnInit{
   }
 
   onLogin() {
+    const name = this.form.get('name').value;
+    const table = this.form.get('barcode').value.toString().slice(0, 2);
+    const isAdmin = this.form.get('barcode').value.toString().endsWith('1234');
     const user = new User(
-      this.form.get('name').value,
-      this.form.get('barcode').value
+      name,
+      table,
+      isAdmin
     );
 
     this.userService.setUser(user);
-    this.router.navigate(['../']);
   }
 }
 

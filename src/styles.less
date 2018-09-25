@@ -7,3 +7,14 @@ html, body {
   z-index: -2;
 }
 
+@shadow: 0 0 2px rgba(0,0,0,0.7);
+@for-roots: {
+  position: relative;
+  z-index: -1;
+  background: transparent;
+  height: calc(~"100vh - @{footer-size}");
+  margin: 0;
+};
+@footer-size: 50px;
+@icon-size: 35px;
+

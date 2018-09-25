@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PageTypes } from './footer/pageTypes.enum';
 
 @Component({
   selector: 'system',
@@ -6,4 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./system.style.less']
 })
 export class SystemComponent {
+  pageType = PageTypes.MENU;
+
+  onChangePageType(type: PageTypes) {
+    this.pageType = type;
+  }
 }

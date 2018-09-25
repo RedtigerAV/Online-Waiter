@@ -1,5 +1,5 @@
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable, of } from 'rxjs/index';
+import { Observable } from 'rxjs/internal/Observable';
 import { Injectable } from '@angular/core';
 import { UserService } from '../shared/user.service';
 
@@ -9,12 +9,12 @@ export class SystemGuard implements CanActivate {
               private userService: UserService) {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>|Promise<boolean>|boolean {
     if (!this.userService.user) {
       this.router.navigate(['auth']);
-      return of(false);
+      return false;
     }
 
-    return of(true);
+    return true;
   }
 }

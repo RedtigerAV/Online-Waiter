@@ -1,10 +1,13 @@
 import { Dish } from './dish.model';
+import { User } from './user.model';
 
 export class Order {
-  public id: number;
-  public userName: string;
-  public userTable: string;
-  public cardPayment: boolean;
-  public comment: string;
-  public dishes: Dish[];
+  public cardPayment = false;
+  public comment = '';
+  public dishes: Dish[] = [];
+  public time: Date;
+
+  constructor(public id: string,
+              public user: User) {
+  }
 }

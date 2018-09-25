@@ -1,0 +1,124 @@
+.menu-root {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%
+}
+
+.wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow: scroll;
+}
+
+.scrolling-wrapper {
+  position: sticky;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: auto;
+  min-height: 200px;
+  margin-bottom: 20px;
+}
+
+.categoryName {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  opacity: 0;
+  font-size: 24px;
+  text-align: center;
+  overflow: hidden;
+  background-color: white;
+  transition: all 0.25s ease-out;
+  z-index: 2000;
+  box-shadow: 0 0 2px rgba(0,0,0,0.7);
+}
+
+.visible {
+  opacity: 100;
+  transition: all 0.25s ease-out;
+}
+
+.dish {
+  margin: auto;
+}
+
+.dish-card {
+  margin: 10px auto;
+  width: 80%;
+  transition: all 0.25s ease-out;
+}
+
+.card {
+  position: relative;
+  width: 50%;
+  height: auto;
+  flex: 0 0 auto;
+  margin: 10px 20px;
+  padding: 3px;
+}
+
+.card-content {
+  position: relative;
+  height: 140px;
+  padding: 0;
+  transition: all 0.25s ease-out;
+}
+
+.card-name {
+  position: relative;
+  text-align: center;
+  margin: 7px;
+  font-size: 17px;
+}
+
+.menu-img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  filter: brightness(85%);
+  background-size: cover;
+  box-shadow: 0 0 2px rgba(0,0,0,0.7);
+}
+
+.notIsAvailable {
+  opacity: .70;
+  filter: brightness(85%);
+  transition: all 0.25s ease-out;
+}
+
+.isActive {
+  -webkit-box-shadow: -9px 9px 13px 0px rgba(0,0,0,0.34);
+  -moz-box-shadow: -9px 9px 13px 0px rgba(0,0,0,0.34);
+  box-shadow: -9px 9px 13px 0px rgba(0,0,0,0.34);
+  transition: all 0.25s ease-out;
+  transform: translateX(3px) translateY(-3px);
+}
+
+.dish-title {
+  font-size: 17px;
+}
+
+.dish-subtitle {
+  font-size: 15px;
+}
+
+.comment-field {
+  width: 100%;
+}
+
+.comment-input {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

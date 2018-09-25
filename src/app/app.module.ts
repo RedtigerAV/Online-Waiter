@@ -8,6 +8,13 @@ import { SystemModule } from './system/system.module';
 import { AppRouting } from './app.routing';
 import { SystemGuard } from './system/system.guard';
 import { UserService } from './shared/user.service';
+import { CategoryService } from './shared/category.service';
+import { OrderService } from './shared/order.service';
+import { DishService } from './shared/dish.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -15,12 +22,21 @@ import { UserService } from './shared/user.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AuthModule,
     SystemModule,
     AppRouting,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [SystemGuard, UserService],
+  providers: [
+    SystemGuard,
+    UserService,
+    CategoryService,
+    OrderService,
+    DishService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
