@@ -3,5 +3,6 @@
   <basket-admin *ngIf="pageType === 'basket-admin'"></basket-admin>
   <basket *ngIf="pageType === 'basket'" (changePageType)="onChangePageType($event)"></basket>
   <notifications *ngIf="pageType === 'notifications'"></notifications>
+  <notifications-admin *ngIf="pageType === 'notifications-admin'"></notifications-admin>
 </div>
 <footer [selectType]="pageType" (changePageType)="onChangePageType($event)"></footer>

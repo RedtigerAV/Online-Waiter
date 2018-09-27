@@ -1,0 +1,34 @@
+<div class="notifications-admin-info">
+  <p class="notifications-admin-name">Ожидают</p>
+  <p class="notifications-admin-name">Количество: {{adminWaitingLen + waiterWaitingLen}}</p>
+</div>
+
+<div class="notifications-admin-root">
+  <ng-container *ngFor="let user1 of adminWaiting">
+    <mat-card class="notifications-admin-card notifications-admin-card-red">
+      <div class="na-content">
+        <div class="na-header">
+          <p class="na-title">{{user1.name}}</p>
+          <p class="na-subtitle">Столик №{{user1.table}}</p>
+        </div>
+        <div class="na-action">
+          <button mat-stroked-button (click)="giveAdmin(user1)">Обслужен</button>
+        </div>
+      </div>
+    </mat-card>
+  </ng-container>
+
+  <ng-container *ngFor="let user2 of waiterWaiting">
+    <mat-card class="notifications-admin-card notifications-admin-card-yellow">
+      <div class="na-content">
+        <div class="na-header">
+          <p class="na-title">{{user2.name}}</p>
+          <p class="na-subtitle">Столик №{{user2.table}}</p>
+        </div>
+        <div class="na-action">
+          <button mat-stroked-button (click)="giveWaiter(user2)">Обслужен</button>
+        </div>
+      </div>
+    </mat-card>
+  </ng-container>
+</div>

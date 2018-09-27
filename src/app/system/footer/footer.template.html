@@ -25,19 +25,9 @@
           *ngIf="isAdmin()"
           [color]="selectType === 'basket-admin' ? 'warn' : ''"
           (click)="changeType('basket-admin')">
-    <mat-icon [matBadgeHidden]="false"
-              matBadge="11"
-              matBadgeColor="accent">shopping_basket</mat-icon>
-  </button>
-
-  <button mat-button
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          *ngIf="isAdmin()"
-          [color]="selectType === 'clients' ? 'warn' : ''"
-          (click)="changeType('clients')">
-    <mat-icon>people</mat-icon>
+    <mat-icon [matBadgeHidden]="ordersLength === 0"
+              matBadge="{{ordersLength}}"
+              matBadgeColor="primary">shopping_basket</mat-icon>
   </button>
 
   <button mat-button
@@ -48,5 +38,17 @@
           [color]="selectType === 'notifications' ? 'warn' : ''"
           (click)="changeType('notifications')">
     <mat-icon>room_service</mat-icon>
+  </button>
+
+  <button mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          *ngIf="isAdmin()"
+          [color]="selectType === 'notifications-admin' ? 'warn' : ''"
+          (click)="changeType('notifications-admin')">
+    <mat-icon [matBadgeHidden]="adminWaitingLen + waiterWaitingLen === 0"
+              matBadge="{{adminWaitingLen + waiterWaitingLen}}"
+              matBadgeColor="primary">people</mat-icon>
   </button>
 </div>

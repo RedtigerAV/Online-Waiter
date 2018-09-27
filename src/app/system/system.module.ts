@@ -5,14 +5,21 @@ import { CommonModule } from '@angular/common';
 import { SystemRouting } from './system.routing';
 import { FooterComponent } from './footer/footer.component';
 import {
-  MatBadgeModule, MatButtonModule, MatCardModule, MatDividerModule, MatIconModule,
-  MatInputModule, MatStepperModule
+  MatBadgeModule,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDividerModule,
+  MatIconModule,
+  MatInputModule,
+  MatStepperModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { BasketComponent } from './basket/basket.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { BasketAdminComponent } from './basketAdmin/basketAdmin.component';
+import { NotificationsAdminComponent } from './notificationsAdmin/notificationsAdmin.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,8 @@ import { BasketAdminComponent } from './basketAdmin/basketAdmin.component';
     MenuComponent,
     BasketComponent,
     NotificationsComponent,
-    BasketAdminComponent
+    BasketAdminComponent,
+    NotificationsAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,8 @@ import { BasketAdminComponent } from './basketAdmin/basketAdmin.component';
     MatButtonModule,
     MatDividerModule,
     MatBadgeModule,
-    MatStepperModule
+    MatStepperModule,
+    MatCheckboxModule
   ],
   providers: [
   ]

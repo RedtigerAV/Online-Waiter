@@ -9,7 +9,7 @@ import { UserService } from '../shared/user.service';
   templateUrl: './auth.template.html',
   styleUrls: ['./auth.style.less']
 })
-export class AuthComponent implements OnInit{
+export class AuthComponent implements OnInit {
 
   @ViewChild(BarecodeScannerLivestreamComponent)
   scanner: BarecodeScannerLivestreamComponent;

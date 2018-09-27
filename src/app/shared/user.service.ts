@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { OrderService } from './order.service';
 import { map } from 'rxjs/internal/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
 export class UserService {
@@ -33,6 +34,20 @@ export class UserService {
     }
 
     this.router.navigate(['../']);
+  }
+
+  getAllUsers(): Observable<any> {
+    return this.firebaseDB.list('users').snapshotChanges()
+      .pipe(
+        map(list => list
+          .map(item => ({
+            ...item.payload.val()
+          })))
+      );
+  }
+
+  updateUser(user: User) {
+    this.firebaseDB.list('users').set(user.id, user);
   }
 
   toggleWaiterWaiting(wait: boolean) {

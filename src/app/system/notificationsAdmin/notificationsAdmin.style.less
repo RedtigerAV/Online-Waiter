@@ -1,0 +1,67 @@
+.notifications-admin-root {
+  position: relative;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  height: calc(~"100% - 50px");
+}
+
+.notifications-admin-name {
+  position: relative;
+  font-size: 20px;
+  margin: 10px 20px;
+  height: auto;
+}
+
+.notifications-admin-info {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 2px rgba(0,0,0,0.7);
+  z-index: 1000;
+}
+
+.notifications-admin-card {
+  margin: 10px auto;
+  width: 90%;
+  transition: all 0.25s ease-out;
+
+  &-red {
+    background-color: #ffb3ba;
+  }
+
+  &-yellow {
+    background-color: #ffdfba;
+  }
+}
+
+.na-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 8px;
+  width: auto;
+}
+
+.na-header {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.na-title {
+  display: table;
+  font-size: 17px;
+  margin: 5px 0;
+}
+
+.na-subtitle {
+  display: table;
+  font-size: 15px;
+  margin: 5px 0;
+  color: gray;
+}
