@@ -5,6 +5,8 @@ import { ORDER_LOCAL_KEY } from './consts';
 import { User } from '../models/user.model';
 import { Dish } from '../models/dish.model';
 import { DishService } from './dish.service';
+import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs/internal/operators';
 
 @Injectable()
 export class OrderService {
@@ -17,6 +19,24 @@ export class OrderService {
     if (!!this.userOrder && !!this.userOrder.id) {
       this.subscribeOnDishesChanges();
     }
+  }
+
+  getAllOrders(): Observable<any> {
+    return this.firebaseDB.list('orders').snapshotChanges()
+      .pipe(
+        map(list => list
+          .map(item => ({
+            ...item.payload.val()
+          })))
+      );
+  }
+
+  updateOrder(order: Order) {
+    this.firebaseDB.list('orders').set(order.id, order);
+  }
+
+  removeOrder(order: Order) {
+    this.firebaseDB.list('orders').remove(order.id);
   }
 
   createOrder(user: User) {

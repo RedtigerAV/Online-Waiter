@@ -1,8 +1,50 @@
 <div class="basket-info">
   <p class="basket-name">Заказы</p>
-  <p class="basket-name">Количество: 0</p>
+  <p class="basket-name">Количество: {{ordersLength}}</p>
 </div>
 
 <div class="basket-admin-root">
-  lol
+  <ng-container *ngFor="let order of orders">
+    <mat-card class="order-card">
+      <mat-card-header>
+        <mat-card-title class="order-title-group">
+          <p class="order-title">{{order.user.name}} (#{{order.user.table}})</p>
+        </mat-card-title>
+        <mat-card-subtitle class="order-subtitle" *ngIf="!order.cardPayment"> Оплата: наличными </mat-card-subtitle>
+        <mat-card-subtitle class="order-subtitle" *ngIf="order.cardPayment"> Оплата: картой </mat-card-subtitle>
+        <mat-card-subtitle class="order-subtitle" *ngIf="!!order.comment"> Комментарий: {{order.comment}} </mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+
+      <div class="order-dishes">
+        <p class="order-dishes-title">Блюда:</p>
+        <div class="order-dish-wrapper" *ngFor="let dish of order.dishes">
+          <div class="order-dish">
+            <mat-checkbox class="checkbox"
+                          *ngIf="dish.amount > 1"
+                          [checked]="dish.isReady"
+                          (change)="toggleDish($event, dish, order)">
+              {{dish.name}} X {{dish.amount}}
+            </mat-checkbox>
+            <mat-checkbox class="checkbox"
+                          [checked]="dish.isReady"
+                          *ngIf="dish.amount === 1"
+                          (change)="toggleDish($event, dish, order)">
+              {{dish.name}}
+            </mat-checkbox>
+          </div>
+          <p class="order-dish-comment" *ngIf="!!dish.comment">Комментарий: {{dish.comment}}</p>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <button mat-stroked-button
+                color="warn"
+                [disabled]="!isReadyButtonDisabled(order.dishes)"
+                (click)="removeOrder(order)">Готово</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
 </div>
